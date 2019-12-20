@@ -38,7 +38,7 @@ A new project will be created as below
 ## DaprMicroserviceTemplate project ##
 <details>
   <summary>Building a Docker Image</summary>
-  <p>DockerFileCI - Contains the commands to build a Docker image for the microservice.
+  <p>DockerFile - Contains the commands to build a Docker image for the microservice.
 </details>
 
 <details>
