@@ -11,7 +11,7 @@ variables:
   dockerRegistryServiceConnection: 'DevTestRegistry'
   imageRepository: 'dev'
   containerRegistry: 'adlacrdev.azurecr.io'
-  dockerfilePath: '**/$safeprojectname$/DockerfileCI'
+  dockerfilePath: '**/$safeprojectname$/Dockerfile'
   tag: '$(Build.BuildId)'
   kubernetesServiceConnection: 'adl-aks-dev'
   
