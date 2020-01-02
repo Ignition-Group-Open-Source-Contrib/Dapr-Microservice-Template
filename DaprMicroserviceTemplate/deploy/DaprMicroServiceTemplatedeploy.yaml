@@ -17,11 +17,11 @@ spec:
       annotations:
         dapr.io/enabled: "true"
         dapr.io/id: "$daprAppName$"
-        dapr.io/port: "$daprport$"
+        dapr.io/port: 3000 
     spec:
       containers:
       - name: $daprAppName$app
-        image: adlacrdev.azurecr.io/dev:4968
+        image: docker.io/$(tag)
         ports:
-        - containerPort: $daprport$
+        - containerPort: 3000
         imagePullPolicy: Always
