@@ -26,11 +26,11 @@ Following curl call will return values on from the values controller
 
 On Linux, MacOS:
  ```sh
-curl -X GET http://localhost:3500/v1.0/invoke/"$daprAppName$"/method/api/values -d '{ "PropertyA": "ValueA", "PropertyB": "ValueB" }'
+curl -X GET http://localhost:3500/v1.0/invoke/"$daprAppName$"/method/weatherforecast
  ```
  On Windows:
  ```sh
-curl -X GET http://localhost:3500/v1.0/invoke/"$daprAppName$"/method/api/values -d "{ \"PropertyA\": \"ValueA\", \"PropertyB\": \"ValueB\" }"
+curl -X GET http://localhost:3500/v1.0/invoke/"$daprAppName$"/method/weatherforecast
  ```
  
  
