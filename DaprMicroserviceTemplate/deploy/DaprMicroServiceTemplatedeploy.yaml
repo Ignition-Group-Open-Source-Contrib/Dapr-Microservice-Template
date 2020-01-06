@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: $daprAppName$app
-        image: adlacrdev.azurecr.io/dev:4968
+        image: localhost:5000/$daprAppName$
         ports:
         - containerPort: $daprport$
         imagePullPolicy: Always
