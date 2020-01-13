@@ -13,40 +13,24 @@ namespace DaprMicroServiceTemplate
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.ConfigureAppConfiguration((hostingContext,config) =>
-                    {
+         Host.CreateDefaultBuilder(args)
+             .ConfigureWebHostDefaults(webBuilder =>
+             {
+                 webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                 {
+                     config.AddAzureAppConfiguration(opt =>
+                     {
+                         opt.ConnectionString = "<insert azure app configuration connection string here>";
+                         opt.Use(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName);
+                     });
+                 });
+                 webBuilder.ConfigureKestrel(serverOptions =>
+                 {
 
-                        if (hostingContext.HostingEnvironment.IsEnvironment("Development"))
-                        {
-                            config.AddAzureAppConfiguration(opt =>
-                            {
-                                opt.ConnectionString = "<Azure App Configuration Connection String to be Filled in Here>";
-                                opt.Use(KeyFilter.Any, "\0").Use(KeyFilter.Any, "Development");
-                            });
-                        }
-                        else if (hostingContext.HostingEnvironment.IsEnvironment("Staging"))
-                        {
-                            config.AddAzureAppConfiguration(opt =>
-                            {
-                                opt.ConnectionString = "<Azure App Configuration Connection String to be Filled in Here>";
-                                opt.Use(KeyFilter.Any, "\0").Use(KeyFilter.Any, "Staging");
-                            });
-                        }
-                        else
-                            config.AddAzureAppConfiguration(opt =>
-                            {
-                                opt.ConnectionString = "<Azure App Configuration Connection String to be Filled in Here>";
-                                opt.Use(KeyFilter.Any, "\0").Use(KeyFilter.Any, "Production");
-                            });
-                    });
-                    webBuilder.ConfigureKestrel(serverOptions =>
-                    {
 
-                    })
-                    .UseStartup<Startup>();
-                });
+
+                 })
+                 .UseStartup<Startup>();
+             });
     }
 }
