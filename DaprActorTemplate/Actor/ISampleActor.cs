@@ -2,7 +2,7 @@
 using AutoWrapper.Wrappers;
 using Dapr.Actors;
 
-namespace AgentCallbackActor.Actor
+namespace DaprActorTemplate.Actor
 {
     public interface ISampleActor : IActor
     {

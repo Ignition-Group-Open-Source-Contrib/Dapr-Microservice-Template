@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace AgentCallbackActor.Controllers
+namespace DaprActorTemplate.Controllers
 {
     [ApiController]
     [Route("[controller]")]

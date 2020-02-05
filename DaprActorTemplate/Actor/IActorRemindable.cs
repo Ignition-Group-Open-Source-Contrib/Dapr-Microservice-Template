@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Dapr.Actors.Runtime;
 
-namespace AgentCallbackActor.Actor
+namespace DaprActorTemplate.Actor
 {
     public interface IRemindableWrapper
     {

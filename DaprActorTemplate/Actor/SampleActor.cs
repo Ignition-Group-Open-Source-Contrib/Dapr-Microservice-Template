@@ -12,7 +12,7 @@ using AutoWrapper.Wrappers;
 using Dapr.Actors;
 using Dapr.Actors.Runtime;
 
-namespace AgentCallbackActor.Actor
+namespace DaprActorTemplate.Actor
 {
     /// <summary>
     /// Actor Implementation.

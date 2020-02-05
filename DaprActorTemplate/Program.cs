@@ -1,14 +1,11 @@
 using System;
-using System.IO;
-using System.Reflection;
 using Dapr.Actors.AspNetCore;
 using Dapr.Actors.Runtime;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 using Microsoft.Extensions.Hosting;
 
-namespace AgentCallbackActor
+namespace DaprActorTemplate
 {
     public class Program
     {

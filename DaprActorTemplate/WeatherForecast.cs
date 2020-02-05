@@ -1,6 +1,6 @@
 using System;
 
-namespace AgentCallbackActor
+namespace DaprActorTemplate
 {
     public class WeatherForecast
     {

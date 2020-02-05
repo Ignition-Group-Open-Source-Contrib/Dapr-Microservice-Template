@@ -1,4 +1,4 @@
-﻿namespace AgentCallbackActor.Actor
+﻿namespace DaprActorTemplate.Actor
 {
     public class StateData
     {
