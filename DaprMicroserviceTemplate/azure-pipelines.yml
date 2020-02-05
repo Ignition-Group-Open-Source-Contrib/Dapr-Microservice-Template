@@ -8,12 +8,12 @@ resources:
 variables:
 
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'DevTestRegistry'
+  dockerRegistryServiceConnection: '<DockerServiceConnectionHere>'
   imageRepository: 'dev'
-  containerRegistry: 'adlacrdev.azurecr.io'
+  containerRegistry: '<registryNameHere>.azurecr.io'
   dockerfilePath: '**/$safeprojectname$/Dockerfile'
   tag: '$(Build.BuildId)'
-  kubernetesServiceConnection: 'adl-aks-dev'
+  kubernetesServiceConnection: '<ServiceConnectionHere>'
   
   # Kubernetes Namespace
   k8sNamespace: 'default'
