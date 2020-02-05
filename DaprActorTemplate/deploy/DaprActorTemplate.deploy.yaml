@@ -1,0 +1,27 @@
+﻿
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $daprAppName$app
+  labels:
+    app: $daprAppName$
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: $daprAppName$
+  template:
+    metadata:
+      labels:
+        app: $daprAppName$
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/id: "$daprAppName$"
+        dapr.io/port: 3000 
+    spec:
+      containers:
+      - name: $daprAppName$app
+        image: docker.io/$(tag)
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: Always
