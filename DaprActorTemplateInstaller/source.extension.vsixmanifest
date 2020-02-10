@@ -3,7 +3,7 @@
     <Metadata>
         <Identity Id="DaprActorTemplateInstaller1" Version="1.0" Language="en-US" Publisher="Ignition Group" />
         <DisplayName>Dapr Actor Template</DisplayName>
-        <Description xml:space="preserve">A Microservice Template using Dapr.io and Kubernetes</Description>
+        <Description xml:space="preserve">Actor Microservice Template using Dapr.io and Kubernetes</Description>
         <Icon>microservice.png</Icon>
     </Metadata>
     <Installation>
@@ -17,7 +17,7 @@
         <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
     <Assets>
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\DaprMicroServiceTemplate.zip" />
         <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" AssemblyName="|%CurrentProject%;AssemblyName|" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\DaprActorTemplate.zip" />
     </Assets>
 </PackageManifest>

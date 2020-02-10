@@ -4,40 +4,35 @@
 
 resources:
 - repo: self
-
-variables:
-
-  # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '<DockerServiceConnectionHere>'
-  imageRepository: 'dev'
-  containerRegistry: '<registryNameHere>.azurecr.io'
-  dockerfilePath: '**/$safeprojectname$/Dockerfile'
-  tag: '$(Build.BuildId)'
-  kubernetesServiceConnection: '<ServiceConnectionHere>'
   
-  # Kubernetes Namespace
-  k8sNamespace: 'default'
-  imagePullSecret: 'regcred'
-
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
 
 stages:
 - stage: Build
   displayName: Build stage
   jobs:  
   - job: Build
+    variables:
+    - group: '<Insert Microservices Pipeline variables group Name Here>'
     displayName: Build job
     pool:
-      vmImage: $(vmImageName)
-    steps:
-   
+      vmImage: 'ubuntu-latest'
+
+ 
+
+    steps:      
+    - task: DotNetCoreCLI@2
+      displayName: Run all unittests in solution
+      inputs:
+        command: 'test'
+        projects: '**/<Insert You Prooject Solution Name Here>.sln'
+
+       
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
         command: buildAndPush
         repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
+        dockerfile: '**/$safeprojectname$/Dockerfile'
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag) 
@@ -46,14 +41,16 @@ stages:
       inputs:
               targetPath: '$(Pipeline.Workspace)'
 
-- stage: Deploy
-  displayName: Deploy stage
+- stage: DeployToDev
+  displayName: Deploy to Dev
   dependsOn: Build
   jobs:
   - deployment: Deploy
-    displayName: Deploy job
+    variables:
+    - group: '<Insert Microservices Pipeline variables group Name for Dev Here>'
+    displayName: Deploying to Development
     pool:
-      vmImage: $(vmImageName)
+      vmImage: 'ubuntu-latest'
     environment: 'dev'
     strategy:
       runOnce:
@@ -73,8 +70,45 @@ stages:
               dockerRegistryEndpoint: $(dockerRegistryServiceConnection) 
               kubernetesServiceConnection: $(kubernetesServiceConnection)
               manifests: |
-                $(System.ArtifactsDirectory)/**/$safeprojectname$deploy.yaml              
+                $(System.ArtifactsDirectory)/**/$safeprojectname$deploy.yaml 
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
+
+
+- stage: DeployToProd
+  displayName: Deploy to prod
+  dependsOn: DeployToDev
+  jobs:
+  - deployment: Deploy
+    variables:
+    - group: '<Insert Microservices Pipeline variables group Name for production Here>'
+    displayName: Deploying to Production
+    pool:
+      vmImage: $(vmImageName)
+    environment: 'Production'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadPipelineArtifact@1
+            inputs:
+              artifactName: 'drop'
+              downloadPath: '$(System.ArtifactsDirectory)'    
+          
+          - task: KubernetesManifest@0
+            displayName: Deploy to Kubernetes cluster
+            inputs:
+              action: deploy
+              namespace: $(k8sNamespace)
+              secretName: $(imagePullSecret)
+              dockerRegistryEndpoint: $(dockerRegistryServiceConnection) 
+              kubernetesServiceConnection: $(kubernetesServiceConnection)
+              manifests: |
+                $(System.ArtifactsDirectory)/**/$safeprojectname$deployProd.yaml 
+              imagePullSecrets: |
+                $(imagePullSecret)
+              containers: |
+                $(containerRegistry)/$(imageRepository):$(tag)
+

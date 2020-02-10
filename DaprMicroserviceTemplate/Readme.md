@@ -11,7 +11,7 @@ The sample shows how to create a .Net API,integrate with Dapr and invoke its end
 
  ## Running the Sample
 
- To run the actor service locally run this comment in $daprAppName$ directory:
+ To run the service locally run this comment in $daprAppName$ directory:
  ```sh
  dapr run --port 3500 --app-id demo_app --app-port 3000 dotnet run
  ```
@@ -20,7 +20,7 @@ The sample shows how to create a .Net API,integrate with Dapr and invoke its end
 
  ### Making Client calls.
 
-**ValuesController**
+
 Following curl call will return values on from the values controller 
 (below calls on MacOs, Linux & Windows are exactly the same except for escaping quotes on Windows for curl)
 

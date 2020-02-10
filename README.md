@@ -29,7 +29,7 @@ The information captured in the customer prompt will replace the template variab
 *annotations:
         dapr.io/enabled: "true"
         dapr.io/id: "$daprAppName$"
-        dapr.io/port: "$daprport$"*
+        dapr.io/port: 3000*
 
 A new project will be created as below
 

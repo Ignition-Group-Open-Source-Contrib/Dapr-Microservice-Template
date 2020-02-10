@@ -27,4 +27,4 @@ spec:
         imagePullPolicy: Always
         env:
         - name: "ASPNETCORE_ENVIRONMENT"
-          value: "Development"
+          value: "Production"
