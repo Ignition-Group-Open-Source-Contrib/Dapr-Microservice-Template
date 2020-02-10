@@ -21,7 +21,7 @@ Under installed extentions you should find the Extension Installed.
 To create a new project in visual studio using the template
 * Add a new project by selecting File -> New Project.
 * Select Dapr Microservice Template for the project type and fill in the project information. Click on Create
-* A custom prompt will ask for the microservice application name and Dapr app port number to be used by Dapr on deployment into the Kubernetes cluster.
+* A custom prompt will ask for the microservice application name to be used by the Dapr on deployment into the Kubernetes cluster.
 
 The information captured in the customer prompt will replace the template variables in the deployment yaml file found in the Deploy folder.
 
