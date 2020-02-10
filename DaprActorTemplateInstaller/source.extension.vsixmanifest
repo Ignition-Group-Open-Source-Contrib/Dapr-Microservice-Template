@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="DaprTemplateInstaller1.2" Version="1.3" Language="en-US" Publisher="Ignition Group" />
-        <DisplayName>Dapr Microservice Template</DisplayName>
-        <Description xml:space="preserve">A Microservice Template using Dapr.io and Kubernetes</Description>
-        <MoreInfo>https://github.com/Ignition-Group-Open-Source-Contrib/Dapr-Microservice-Template</MoreInfo>
+        <Identity Id="DaprActorTemplateInstaller1" Version="1.0" Language="en-US" Publisher="Ignition Group" />
+        <DisplayName>Dapr Actor Template</DisplayName>
+        <Description xml:space="preserve">Actor Microservice Template using Dapr.io and Kubernetes</Description>
         <Icon>microservice.png</Icon>
     </Metadata>
     <Installation>
@@ -18,7 +17,7 @@
         <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
     <Assets>
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\DaprMicroServiceTemplate.zip" />
         <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%|" AssemblyName="|%CurrentProject%;AssemblyName|" />
+        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\DaprActorTemplate.zip" />
     </Assets>
 </PackageManifest>

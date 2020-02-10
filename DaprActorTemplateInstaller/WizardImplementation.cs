@@ -85,7 +85,7 @@ namespace TemplateInstaller
             this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Application Name";
-           
+
             // 
             // textBox1
             // 

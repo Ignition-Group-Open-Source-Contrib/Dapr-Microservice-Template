@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace DaprMicroserviceTemplate
+namespace DaprActorTemplate
 {
     public class Startup
     {
@@ -19,14 +19,10 @@ namespace DaprMicroserviceTemplate
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddRouting();
             services.Configure<KestrelServerOptions>(options =>
             {
-                options.AllowSynchronousIO = true;
-                //Since this Microservice exists on a separate network within the kubernetes cluster, 
-                //All apps can be left to run on the same http port. Dapr will resolve this correctly regardless.
-                options.ListenAnyIP(3000);
-                                
+                options.ListenAnyIP(4000);
             });
         }
 
@@ -37,17 +33,11 @@ namespace DaprMicroserviceTemplate
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            else
             {
-                endpoints.MapControllers();
-            });
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
         }
     }
 }

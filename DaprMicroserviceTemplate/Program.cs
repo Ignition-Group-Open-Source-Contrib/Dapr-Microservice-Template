@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
-namespace DaprMicroServiceTemplate
+namespace DaprMicroserviceTemplate
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
@@ -13,24 +12,16 @@ namespace DaprMicroServiceTemplate
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-         Host.CreateDefaultBuilder(args)
-             .ConfigureWebHostDefaults(webBuilder =>
-             {
-                 webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-                 {
-                     config.AddAzureAppConfiguration(opt =>
-                     {
-                         opt.ConnectionString = "<insert azure app configuration connection string here>";
-                         opt.Use(KeyFilter.Any, hostingContext.HostingEnvironment.EnvironmentName);
-                     });
-                 });
-                 webBuilder.ConfigureKestrel(serverOptions =>
-                 {
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
 
-
-
-                 })
-                 .UseStartup<Startup>();
-             });
+                    webBuilder.UseStartup<Startup>();
+                }).ConfigureLogging(builder =>
+                {
+                    builder.AddConsole();
+                    builder.AddDebug();
+                    
+                });
     }
 }
