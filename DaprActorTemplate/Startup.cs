@@ -22,7 +22,7 @@ namespace DaprActorTemplate
             services.AddRouting();
             services.Configure<KestrelServerOptions>(options =>
             {
-                options.ListenAnyIP(4000);
+                options.ListenAnyIP(3000);
             });
         }
 
