@@ -86,7 +86,7 @@ stages:
     - group: '<Insert Microservices Pipeline variables group Name for production Here>'
     displayName: Deploying to Production
     pool:
-      vmImage: $(vmImageName)
+      vmImage: 'ubuntu-latest'
     environment: 'Production'
     strategy:
       runOnce:
