@@ -17,7 +17,7 @@ spec:
       annotations:
         dapr.io/enabled: "true"
         dapr.io/id: "$daprAppName$"
-        dapr.io/port: 3000 
+        dapr.io/port: "3000" 
     spec:
       containers:
       - name: $daprAppName$app
