@@ -11,7 +11,7 @@ The sample shows how to create a .Net API,integrate with Dapr and invoke its end
 
  ## Running the Sample
 
- To run the service locally run this comment in $daprAppName$ directory:
+ To run theactor service locally run this comment in $daprAppName$ directory:
  ```sh
  dapr run --port 3500 --app-id demo_app --app-port 3000 dotnet run
  ```
@@ -26,11 +26,11 @@ Following curl call will return values on from the values controller
 
 On Linux, MacOS:
  ```sh
-curl -X GET http://localhost:3500/v1.0/invoke/"$daprAppName$"/method/weatherforecast
+curl -X GET http://localhost:3500/v1.0/invoke/"daprid"/method/weatherforecast
  ```
  On Windows:
  ```sh
-curl -X GET http://localhost:3500/v1.0/invoke/"$daprAppName$"/method/weatherforecast
+curl -X GET http://localhost:3500/v1.0/invoke/"daprid"/method/weatherforecast
  ```
  
  
