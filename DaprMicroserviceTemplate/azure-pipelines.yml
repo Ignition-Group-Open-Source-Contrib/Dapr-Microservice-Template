@@ -76,12 +76,6 @@ stages:
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
 
-          - task: DeleteFiles@1
-            displayName: Clean up ReleaseDirectory
-            continueOnError: true
-            inputs:
-              SourceFolder: '$(Agent.ReleaseDirectory)\'
-              Contents: '*'
 
 - stage: DeployToProd
   displayName: Deploy to prod
@@ -119,9 +113,3 @@ stages:
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
 
-          - task: DeleteFiles@1
-            displayName: Clean up ReleaseDirectory
-            continueOnError: true
-            inputs:
-              SourceFolder: '$(Agent.ReleaseDirectory)\'
-              Contents: '*'
