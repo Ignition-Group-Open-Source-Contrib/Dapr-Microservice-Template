@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>485c1231-083b-41cd-b6b6-2dea418d672c</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
@@ -9,10 +9,10 @@
 
   <ItemGroup>
     <PackageReference Include="AutoWrapper.Core" Version="3.0.0" />
-    <PackageReference Include="Dapr.Actors" Version="0.3.0-preview01" />
-    <PackageReference Include="Dapr.Actors.AspNetCore" Version="0.3.0-preview01" />
+    <PackageReference Include="Dapr.Actors" Version="0.4.0-preview01" />
+    <PackageReference Include="Dapr.Actors.AspNetCore" Version="0.4.0-preview01" />
     <PackageReference Include="Guard.NET" Version="1.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" Version="2.1.0-preview-010380001-1099" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" Version="3.0.0" />
   </ItemGroup>
 
 
