@@ -4,7 +4,19 @@
 
 resources:
 - repo: self
-  
+
+trigger:
+  branches:
+    include:
+    - master
+    - develop
+    - features/*
+  paths:
+    include:
+    - MicroserviceSolution/$safeprojectname$/*
+    exclude:
+    - README.md
+   
 
 stages:
 - stage: Build
@@ -20,13 +32,6 @@ stages:
  
 
     steps:      
-    - task: DotNetCoreCLI@2
-      displayName: Run all unittests in solution
-      inputs:
-        command: 'test'
-        projects: '**/<Insert You Prooject Solution Name Here>.sln'
-
-       
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:

@@ -4,6 +4,17 @@
 
 resources:
 - repo: self
+trigger:
+  branches:
+    include:
+    - master
+    - develop
+    - features/*
+  paths:
+    include:
+    - MicroserviceSolution/$safeprojectname$/*
+    exclude:
+    - README.md
   
 
 stages:

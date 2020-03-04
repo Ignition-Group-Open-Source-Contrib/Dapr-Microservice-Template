@@ -1,6 +1,10 @@
 using System;
+using System.IO;
+using System.Reflection;
 using Dapr.Actors.AspNetCore;
 using Dapr.Actors.Runtime;
+using log4net;
+using log4net.Config;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -9,8 +13,12 @@ namespace DaprActorTemplate
 {
     public class Program
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(Program));
         public static void Main(string[] args)
         {
+            var logRepo = LogManager.GetRepository(Assembly.GetEntryAssembly());
+            XmlConfigurator.Configure(logRepo, new FileInfo("log4net.config"));
+            log.Info($"Microservice $safeprojectname$ starting");
             CreateHostBuilder(args).Build().Run();
         }
         public static IHostBuilder CreateHostBuilder(string[] args)

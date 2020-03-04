@@ -1,13 +1,21 @@
+using log4net;
+using log4net.Config;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System.IO;
+using System.Reflection;
 
 namespace DaprMicroserviceTemplate
 {
     public static class Program
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(Program));
         public static void Main(string[] args)
         {
+            var logRepo = LogManager.GetRepository(Assembly.GetEntryAssembly());
+            XmlConfigurator.Configure(logRepo, new FileInfo("log4net.config"));
+            log.Info($"Microservice $safeprojectname$ starting");
             CreateHostBuilder(args).Build().Run();
         }
 
