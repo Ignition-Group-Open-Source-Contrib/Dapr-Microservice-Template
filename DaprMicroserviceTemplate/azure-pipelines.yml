@@ -32,6 +32,13 @@ stages:
  
 
     steps:      
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '3.1.x'
+        includePreviewVersions: true
+        useGlobalJson: true
+
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
