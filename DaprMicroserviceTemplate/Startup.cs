@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+using AutoWrapper;
 
 namespace DaprMicroserviceTemplate
 {
@@ -62,6 +63,8 @@ namespace DaprMicroserviceTemplate
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseApiResponseAndExceptionWrapper();
 
             app.UseRouting();
 

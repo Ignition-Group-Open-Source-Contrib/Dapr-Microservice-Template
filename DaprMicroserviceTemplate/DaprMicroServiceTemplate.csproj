@@ -8,6 +8,7 @@
     <PackageReference Include="Gelf4Net.UdpAppender" Version="1.0.0.18" />
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.1.0" />
+    <PackageReference Include="AutoWrapper.Core" Version="4.0.1" />
   </ItemGroup>
 
 
