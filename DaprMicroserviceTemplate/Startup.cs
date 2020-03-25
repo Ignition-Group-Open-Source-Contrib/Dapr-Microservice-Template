@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+using System.Collections.Generic;
 using AutoWrapper;
 
 namespace DaprMicroserviceTemplate
@@ -50,13 +51,31 @@ namespace DaprMicroserviceTemplate
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
+            app.UseSwagger(options =>
+            {
+                options.PreSerializeFilters.Add((document, request) =>
+                {
+                    var server = "<host>/v1.0/invoke/$daprAppName$/method";
+                    if (env.IsProduction())
+                    {
+                        server =
+                            "<host>/v1.0/invoke/$daprAppName$/method";
+                    }
+                    document.Servers = new List<OpenApiServer>()
+                    {
+                        new OpenApiServer()
+                        {
+                            Url = server
+                        }
+                    };
+                });
+            });
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint($"/v1.0/invoke/$daprAppName$/method/swagger/v1/swagger.json", "My API V1");
             });
 
             if (env.IsDevelopment())
