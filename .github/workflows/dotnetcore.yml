@@ -17,5 +17,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-    - name: Build with dotnet
-      run: dotnet build --configuration Release
+    - name: Build DaprMicroserviceTemplate with dotnet core
+      run: dotnet build DaprMicroserviceTemplate/DaprMicroserviceTemplate.csproj --configuration Release
+    - name: Build DaprActorTemplate with dotnet core
+      run: dotnet build DaprActorTemplate/DaprActorTemplate.csproj --configuration Release
