@@ -9,7 +9,7 @@ Available from the Visual Studio Marketplace : https://marketplace.visualstudio.
 
 ### Prerequisites
 * Visual Studio 2019
-* .NET Core 3.0
+* .NET Core 3.1
 
 ## Getting Started
 Install the Dapr microservice template from the link above.
@@ -43,8 +43,23 @@ A new project will be created as below
 
 <details>
   <summary>YAML Files</summary>
-  <p>DaprMicroServiceTemplatedeploy.yaml - Contains the information for deployment into kubernetes cluster</p>
+  <p>DaprMicroServiceTemplatedeploy.yaml - For development - Contains the information for deployment into a dev/Test kubernetes cluster</p>
+  <p>DaprMicroServiceTemplatedeployProd.yaml - For Production - Contains the information for deployment into a production kubernetes cluster</p>
   <p>Azure-Pipelines.yaml - File used to Create the microservice Deployment pipeline for Micrsoft Azure Dev Ops</p>
+</details>
+
+<details>
+  <summary>Custom Nuget Sources</summary>
+  <p>Nuget.config - Add any additional package sources to this file. Required to build the docker image correctly using dot net Restore.
+  <p>Log4Net.config - This template uses Log4net for logging. Contains a console and Gelf4Net.UdpAppender logger. </p>
+</details>
+<details>
+  <summary>Log4Net Logging</summary>
+  <p>Log4Net.config - This template uses Log4net for logging. Contains a console and Gelf4Net.UdpAppender logger. </p>
+</details>
+<details>
+  <summary>Open Api (Swagger) Support</summary>
+  <p>Swagger is a set of open-source tools built around the OpenAPI Specification that can help you design, build, document and consume REST APIs</p>
 </details>
 
 ## TemplateInstaller - VSIX Project ##
