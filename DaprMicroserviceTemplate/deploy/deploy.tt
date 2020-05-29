@@ -1,0 +1,5 @@
+﻿<#@ template hostspecific="true" #>
+<#@ include file="../T4Include/TemplateFileManager.CS.ttinclude" #>
+<#@ output extension=".yaml" #>
+<#@ include file="../T4Include/deploy.ttinclude" #>
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+container="$daprAppName$"
+tag="${container}:local"
+tar="${container}.tar"
+app="${container}app"
+sudo docker build -t $tag .
+sudo docker save $container > $tar
+sudo microk8s ctr image import $tar
+sudo microk8s kubectl delete deployments $app
+sudo microk8s kubectl apply -f deploy/deployLocal.yaml
+

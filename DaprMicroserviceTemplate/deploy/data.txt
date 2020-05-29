@@ -1,0 +1,7 @@
+﻿service=$daprAppName$
+acrregistry=adlacrdev.azurecr.io
+localregistry=localhost:32000
+devvargroup=Microservices Pipeline variables-devtest
+prodvargroup=Microservices Pipeline variables-prod
+registryuser=<Fill in registryUser Here>
+registrypassword=<Fill in Password Here>

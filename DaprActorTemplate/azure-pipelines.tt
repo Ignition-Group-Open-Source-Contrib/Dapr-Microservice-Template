@@ -1,0 +1,4 @@
+﻿<#@ template hostspecific="true" #>
+
+
+<#@  include file="T4Include/pipeline.ttinclude" #>
