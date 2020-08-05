@@ -102,6 +102,7 @@ metadata:
     app: <#= props["service"] #>
 spec:
   replicas: 1
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: <#= props["service"] #>
@@ -140,6 +141,7 @@ metadata:
     app: <#= props["service"] #>
 spec:
   replicas: 1
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: <#= props["service"] #>

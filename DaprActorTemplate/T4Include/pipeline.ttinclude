@@ -145,7 +145,7 @@ stages:
 - stage: DeployToProd
   displayName: Deploy to prod
   dependsOn: TagAsLatest
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs:
   - deployment: Deploy
     variables:
@@ -174,4 +174,14 @@ stages:
                 $(imagePullSecret)
               containers: |
                 $(containerRegistry)/<#= props["service"] #>:latest
+
+          - task: Kubernetes@1
+            displayName: Restarting <#= props["service"] #>...
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceEndpoint: $(kubernetesServiceConnection)
+              command: rollout  
+              arguments: restart deployment <#= props["service"] #>app            
+              versionSpec: 
+              checkLatest: true
 
