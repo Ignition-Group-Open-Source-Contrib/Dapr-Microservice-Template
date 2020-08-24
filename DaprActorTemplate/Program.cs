@@ -17,7 +17,8 @@ namespace DaprActorTemplate
         public static void Main(string[] args)
         {
             var logRepo = LogManager.GetRepository(Assembly.GetEntryAssembly());
-            XmlConfigurator.Configure(logRepo, new FileInfo("log4net.config"));
+            var envstring = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            XmlConfigurator.Configure(logRepo, new FileInfo($"log4net.{envstring}.config"));
             log.Info($"Microservice $safeprojectname$ starting");
             CreateHostBuilder(args).Build().Run();
         }

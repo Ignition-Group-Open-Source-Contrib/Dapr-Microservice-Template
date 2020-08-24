@@ -8,12 +8,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="log4net.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="log4net.Development.config" />
+    <_ContentIncludedByDefault Remove="log4net.Production.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="log4net.config">
+      <DependentUpon>log4net.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </None>
+  </ItemGroup>
+
+
+  <ItemGroup>
     <PackageReference Include="AutoWrapper.Core" Version="4.3.0" />
-    <PackageReference Include="Dapr.Actors" Version="0.9.0-preview01" />
-    <PackageReference Include="Dapr.Actors.AspNetCore" Version="0.9.0-preview01" />
+    <PackageReference Include="Dapr.Actors" Version="0.10.0-preview01" />
+    <PackageReference Include="Dapr.Actors.AspNetCore" Version="0.10.0-preview01" />
     <PackageReference Include="Gelf4Net.UdpAppender" Version="1.0.0.18" />
     <PackageReference Include="Guard.NET" Version="1.2.0" />
-    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="log4net" Version="2.0.9" />
     <PackageReference Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" Version="3.0.2" />
   </ItemGroup>
 
@@ -35,6 +53,10 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>deploy.tt</DependentUpon>
+    </None>
+    <None Update="log4net.tt">
+      <LastGenOutput>log4net.config</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
     </None>
   </ItemGroup>
 

@@ -1,0 +1,4 @@
+﻿<#@ template hostspecific="true" #>
+<#@ include file="T4Include/TemplateFileManager.CS.ttinclude" #>
+<#@ output extension=".config" #>
+<#@ include file="T4Include/log4net2.ttinclude" #>
