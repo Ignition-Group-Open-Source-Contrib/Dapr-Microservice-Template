@@ -61,7 +61,7 @@ A new project will be created as below
   <p>Swagger is a set of open-source tools built around the OpenAPI Specification that can help you design, build, document and consume REST APIs</p>
 </details>
 <details>
-        <summary>Api Reponse Wrapper</summary>
+        <summary>Api Response Wrapper</summary>
         <p> Uses AutoWrapper.Core for a consistent api response format across microservices :https://github.com/proudmonkey/AutoWrapper
 </details>
 
