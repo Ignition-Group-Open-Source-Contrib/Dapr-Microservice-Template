@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DaprMicroserviceTemplate.Controllers
 {
+    /// <summary>
+    /// WeatherForecastController
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -22,7 +25,10 @@ namespace DaprMicroserviceTemplate.Controllers
         {
             
         }
-
+        /// <summary>
+        /// Get WeatherForecast
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {

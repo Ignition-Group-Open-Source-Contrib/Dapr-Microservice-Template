@@ -7,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using AutoWrapper;
 
 namespace DaprMicroserviceTemplate
@@ -44,6 +46,9 @@ namespace DaprMicroserviceTemplate
                         Url = new Uri("https://github.com/Ignition-Group-Open-Source-Contrib/Dapr-Microservice-Template/blob/master/LICENSE"),
                     }
                 });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
         }
 
