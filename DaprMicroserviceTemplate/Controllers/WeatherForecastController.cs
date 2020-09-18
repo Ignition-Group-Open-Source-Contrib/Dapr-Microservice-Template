@@ -21,10 +21,6 @@ namespace DaprMicroserviceTemplate.Controllers
 
         private static readonly ILog _logger = LogManager.GetLogger(typeof(WeatherForecastController));
 
-        public WeatherForecastController()
-        {
-            
-        }
         /// <summary>
         /// This is an example endpoint description
         /// </summary>

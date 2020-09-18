@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using AutoWrapper;
+#pragma warning disable 1591
 
 namespace DaprMicroserviceTemplate
 {
