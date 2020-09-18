@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DaprMicroserviceTemplate.Controllers
 {
     /// <summary>
-    /// WeatherForecastController
+    /// This is an example controller description
     /// </summary>
     [ApiController]
     [Route("[controller]")]
@@ -26,7 +26,7 @@ namespace DaprMicroserviceTemplate.Controllers
             
         }
         /// <summary>
-        /// Get WeatherForecast
+        /// This is an example endpoint description
         /// </summary>
         /// <returns></returns>
         [HttpGet]
