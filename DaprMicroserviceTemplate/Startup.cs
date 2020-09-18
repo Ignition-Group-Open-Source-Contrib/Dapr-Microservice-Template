@@ -40,6 +40,7 @@ namespace DaprMicroserviceTemplate
                 {
                     Version = "v1",
                     Title = "$safeprojectname$ API",
+                    Description = "This is the sample microservice description",
                     License = new OpenApiLicense
                     {
                         Name = "This project is licensed under the MIT License",
