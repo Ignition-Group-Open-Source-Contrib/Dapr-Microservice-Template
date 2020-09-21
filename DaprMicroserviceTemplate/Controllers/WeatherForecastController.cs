@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DaprMicroserviceTemplate.Controllers
 {
+    /// <summary>
+    /// This is an example controller description
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -18,11 +21,10 @@ namespace DaprMicroserviceTemplate.Controllers
 
         private static readonly ILog _logger = LogManager.GetLogger(typeof(WeatherForecastController));
 
-        public WeatherForecastController()
-        {
-            
-        }
-
+        /// <summary>
+        /// This is an example endpoint description
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {

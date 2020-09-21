@@ -7,7 +7,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using AutoWrapper;
+#pragma warning disable 1591
 
 namespace DaprMicroserviceTemplate
 {
@@ -38,12 +41,16 @@ namespace DaprMicroserviceTemplate
                 {
                     Version = "v1",
                     Title = "$safeprojectname$ API",
+                    Description = "This is the sample microservice description",
                     License = new OpenApiLicense
                     {
                         Name = "This project is licensed under the MIT License",
                         Url = new Uri("https://github.com/Ignition-Group-Open-Source-Contrib/Dapr-Microservice-Template/blob/master/LICENSE"),
                     }
                 });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
         }
 
