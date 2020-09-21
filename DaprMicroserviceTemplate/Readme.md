@@ -2,7 +2,7 @@
 The sample shows how to create a .Net API,integrate with Dapr and invoke its endpoints on the client application. 
 
 ## Prerequistes
-* [.Net Core SDK 3.0](https://dotnet.microsoft.com/download)
+* [.Net Core SDK 3.1](https://dotnet.microsoft.com/download)
 * [Dapr CLI](https://github.com/dapr/cli)
 * [Dapr DotNet SDK](https://github.com/dapr/dotnet-sdk)
 
