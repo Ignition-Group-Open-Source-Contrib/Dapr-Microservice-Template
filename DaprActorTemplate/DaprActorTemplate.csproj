@@ -27,8 +27,8 @@
 
   <ItemGroup>
     <PackageReference Include="AutoWrapper.Core" Version="4.3.0" />
-    <PackageReference Include="Dapr.Actors" Version="0.10.0-preview01" />
-    <PackageReference Include="Dapr.Actors.AspNetCore" Version="0.10.0-preview01" />
+    <PackageReference Include="Dapr.Actors" Version="1.0.0-rc05" />
+    <PackageReference Include="Dapr.Actors.AspNetCore" Version="1.0.0-rc05" />
     <PackageReference Include="Gelf4Net.UdpAppender" Version="1.0.0.18" />
     <PackageReference Include="Guard.NET" Version="1.2.0" />
     <PackageReference Include="log4net" Version="2.0.9" />

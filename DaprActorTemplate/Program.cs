@@ -1,8 +1,6 @@
 using System;
 using System.IO;
 using System.Reflection;
-using Dapr.Actors.AspNetCore;
-using Dapr.Actors.Runtime;
 using log4net;
 using log4net.Config;
 using Microsoft.AspNetCore.Hosting;
@@ -33,23 +31,8 @@ namespace DaprActorTemplate
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseConfiguration(currentConfig);
-                    webBuilder.UseStartup<Startup>()
+                    webBuilder.UseStartup<Startup>();
                         
-                        .UseActors(actorRuntime =>
-                        {
-
-                            actorRuntime.RegisterActor<Actor.SampleActor>(information =>
-                            {
-                                return new ActorService(information,
-                                    (service, id) =>
-                                    {
-                                        
-                                        var configSetting1 = "configSetting1";
-                                        var configSetting2 = "configSetting2";
-                                        return new Actor.SampleActor(service, id, configSetting1, configSetting2);
-                                    });
-                            });
-                        });
                 });
         }
 
