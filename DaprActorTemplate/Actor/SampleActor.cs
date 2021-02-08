@@ -30,20 +30,19 @@ namespace DaprActorTemplate.Actor
         private const string ReminderName = "callbacknotificationreminder";
 
         
-        public SampleActor(ActorService service, ActorId actorId, string configSetting1, string configSetting2
+        public SampleActor(ActorHost host
                 , IRemindableWrapper remindableWrapper = null
                 , IActorStateManager actorStateManager = null
               )
 
-            : base(service, actorId)
+            : base(host)
         {
-            this.configSetting1 = configSetting1;
-            this.configSetting2 = configSetting2;
+            this.configSetting1 = "configSetting1";
+            this.configSetting2 = "configSetting2";
             this.remindableWrapper = remindableWrapper ?? new RemindableWrapper(RegisterReminderAsync);
             this.actorStateManager = actorStateManager ?? this.StateManager;
 
         }
-
 
         private ApiResponse BuildResponse(string message, bool isSuccess)
         {
@@ -128,7 +127,7 @@ namespace DaprActorTemplate.Actor
         /// <inheritdoc/>
         public Task RegisterTimer()
         {
-            return this.RegisterTimerAsync(ReminderName, this.TimerCallBack, null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
+            return this.RegisterTimerAsync(ReminderName, nameof(this.TimerCallBack), null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
         }
 
         /// <inheritdoc/>
