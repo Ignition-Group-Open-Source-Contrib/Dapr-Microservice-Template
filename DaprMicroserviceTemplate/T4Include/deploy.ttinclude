@@ -33,8 +33,8 @@ spec:
         app: <#= props["service"] #>
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/id: "<#= props["service"] #>"
-        dapr.io/port: "3000" 
+        dapr.io/app-id: "<#= props["service"] #>"
+        dapr.io/app-port: "3000" 
         prometheus.io/scrape: 'true'
         prometheus.io/port:   '9090'
     spec:
@@ -73,8 +73,8 @@ spec:
         app: <#= props["service"] #>
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/id: "<#= props["service"] #>"
-        dapr.io/port: "3000" 
+        dapr.io/app-id: "<#= props["service"] #>"
+        dapr.io/app-port: "3000" 
         prometheus.io/scrape: 'true'
         prometheus.io/port:   '9090'
     spec:
@@ -112,8 +112,8 @@ spec:
         app: <#= props["service"] #>
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/id: "<#= props["service"] #>"
-        dapr.io/port: "3000" 
+        dapr.io/app-id: "<#= props["service"] #>"
+        dapr.io/app-port: "3000" 
         prometheus.io/scrape: 'true'
         prometheus.io/port:   '9090'
     spec:
@@ -151,8 +151,8 @@ spec:
         app: <#= props["service"] #>
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/id: "<#= props["service"] #>"
-        dapr.io/port: "3000" 
+        dapr.io/app-id: "<#= props["service"] #>"
+        dapr.io/app-port: "3000" 
         prometheus.io/scrape: 'true'
         prometheus.io/port:   '9090'
     spec:
