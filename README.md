@@ -5,7 +5,10 @@ A Microservice Template for visual studio using Dapr.io and Kubernetes
 This VS template makes it easy to create microservices that can be deployed as Dapr applications into a Kubernetes Cluster.
 Includes a .VSIX project to create a VS Extention installer.
 
-Available from the Visual Studio Marketplace : https://marketplace.visualstudio.com/items?itemName=IgnitionGroup.DaprMicroService
+Available from the Visual Studio Marketplace :
+Visual Studio 2022 - https://marketplace.visualstudio.com/items?itemName=IgnitionGroup.DaprMicroServiceVS2022
+
+Older versions -https://marketplace.visualstudio.com/items?itemName=IgnitionGroup.DaprMicroService
 
 ### Prerequisites
 * Visual Studio 2022 or Visual Studio 2019
