@@ -8,7 +8,7 @@ Includes a .VSIX project to create a VS Extention installer.
 Available from the Visual Studio Marketplace : https://marketplace.visualstudio.com/items?itemName=IgnitionGroup.DaprMicroService
 
 ### Prerequisites
-* Visual Studio 2019
+* Visual Studio 2022 or Visual Studio 2019
 * .NET Core 3.1
 
 ## Getting Started
