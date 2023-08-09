@@ -72,6 +72,7 @@ namespace DaprMicroserviceTemplate
 
             app.UseAuthorization();
 
+            //Global Exception Middleware
             app.UseMiddleware<ExceptionMiddleware>();
 
             app.UseEndpoints(endpoints =>

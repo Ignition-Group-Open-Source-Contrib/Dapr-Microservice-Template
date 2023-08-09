@@ -35,7 +35,7 @@ namespace DaprMicroserviceTemplate.Middleware
                 var requestedData = PrepareRequestedData(httpContext, requestContent);
 
                 //Please uncomment below line and allow for global start logs
-                //   _logger.ServiceStarted(list: requestData);
+                //   _logger.ServiceStarted(list: requestedData);
 
                 await _next(httpContext);
             }
