@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using AutoWrapper;
+using DaprMicroserviceTemplate.Middleware;
 #pragma warning disable 1591
 
 namespace DaprMicroserviceTemplate
@@ -70,6 +71,9 @@ namespace DaprMicroserviceTemplate
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //Global Exception Middleware
+            app.UseMiddleware<ExceptionMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
