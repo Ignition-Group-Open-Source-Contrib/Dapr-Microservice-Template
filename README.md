@@ -67,6 +67,10 @@ A new project will be created as below
         <summary>Api Response Wrapper</summary>
         <p> Uses AutoWrapper.Core for a consistent api response format across microservices :https://github.com/proudmonkey/AutoWrapper
 </details>
+<details>
+        <summary>Global Exception Middleware</summary>
+        <p> Through this middleware, we can get all the detailed information of the exception object like the Stack trace, inner exception , message, etc for all http calls.
+</details>
 
 ## TemplateInstaller - VSIX Project ##
 <p>This project will create a .VSIX installer for the Microservice Template. </p>
