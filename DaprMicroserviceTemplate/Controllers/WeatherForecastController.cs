@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using log4net;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,6 +38,24 @@ namespace DaprMicroserviceTemplate.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(WeatherForecast weatherForecast)
+        {
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(WeatherForecast weatherForecast)
+        {
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok();
         }
     }
 }
