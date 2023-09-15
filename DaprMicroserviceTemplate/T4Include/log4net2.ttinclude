@@ -45,7 +45,7 @@ fileTemplateManager.StartNewFile("log4net.Development.config");
 <#
 fileTemplateManager.StartNewFile("log4net.Production.config");
  #>
-  <?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <log4net>
   <!-- A1 is set to be a ConsoleAppender -->
   <appender name="A1" type="log4net.Appender.ConsoleAppender">

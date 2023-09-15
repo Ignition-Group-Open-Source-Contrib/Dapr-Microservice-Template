@@ -120,6 +120,13 @@ spec:
       containers:
       - name: <#= props["service"] #>app
         image: adlacrdev.azurecr.io/<#= props["service"] #>:latest
+        resources:
+          requests:
+            memory: "90Mi"
+            cpu: "0.01"
+          limits:
+            memory: "100Mi"
+            cpu: "0.1"
         ports:
         - containerPort: 3000
         imagePullPolicy: Always
@@ -159,6 +166,13 @@ spec:
       containers:
       - name: <#= props["service"] #>app
         image: adlacrdev.azurecr.io/<#= props["service"] #>:$(tag)
+        resources:
+          requests:
+            memory: "90Mi"
+            cpu: "0.01"
+          limits:
+            memory: "100Mi"
+            cpu: "0.1"
         ports:
         - containerPort: 3000
         imagePullPolicy: Always
