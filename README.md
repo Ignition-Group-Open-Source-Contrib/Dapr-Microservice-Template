@@ -11,8 +11,8 @@ Visual Studio 2022 - https://marketplace.visualstudio.com/items?itemName=Ignitio
 Older versions -https://marketplace.visualstudio.com/items?itemName=IgnitionGroup.DaprMicroService
 
 ### Prerequisites
-* Visual Studio 2022 or Visual Studio 2019
-* .NET Core 3.1
+* Visual Studio 2022 and .NET 7
+* Visual Studio 2019 and .NET Core 3.1
 
 ## Getting Started
 Install the Dapr microservice template from the link above.
